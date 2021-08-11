@@ -1,0 +1,20 @@
+name : first
+
+on: push
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+    - runs: date
+    
+  ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+    - runs: date
+    
+  depends:
+    needs: [windows, ubuntu]
+    runs-on: windows-latest
+    steps:
+    - runs: date
+     
